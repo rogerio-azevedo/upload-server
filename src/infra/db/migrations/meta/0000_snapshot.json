@@ -1,5 +1,5 @@
 {
-  "id": "d01b78c2-62db-4d54-bcb1-0e8d80d42266",
+  "id": "7543d5e6-7175-48f6-8b68-4454b6ea83a5",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -28,12 +28,6 @@
         },
         "remote_url": {
           "name": "remote_url",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "size": {
-          "name": "size",
           "type": "text",
           "primaryKey": false,
           "notNull": true
