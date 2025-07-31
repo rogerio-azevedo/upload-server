@@ -56,8 +56,6 @@ server.get('/', () => {
   return 'Hello World'
 })
 
-console.log('Starting server...', env.DATABASE_URL)
-
 server
   .listen({ port: 3333, host: '0.0.0.0' })
   .then(() => console.log('Server is running'))

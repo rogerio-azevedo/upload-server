@@ -1,5 +1,5 @@
 import { uploadImage } from '@/app/functions/upload-image'
-import { isRight, unwrapEither } from '@/infra/shared/either'
+import { isRight, unwrapEither } from '@/shared/either'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { z } from 'zod'
 
@@ -32,6 +32,12 @@ export const uploadImageRoute: FastifyPluginAsyncZod = async server => {
         contentType: uploadedFile.mimetype,
         contentStream: uploadedFile.file,
       })
+
+      if (uploadedFile.file.truncated) {
+        return reply.status(400).send({
+          message: 'File is too large',
+        })
+      }
 
       if (isRight(result)) {
         return reply.status(201).send({ uploadId: result.right.url })
