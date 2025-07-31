@@ -1,4 +1,3 @@
-import { env } from '@/env'
 import { fastifyCors } from '@fastify/cors'
 import { fastifySwaggerUi } from '@fastify/swagger-ui'
 import { fastify } from 'fastify'
@@ -10,6 +9,8 @@ import {
 
 import fastifyMultipart from '@fastify/multipart'
 import fastifySwagger from '@fastify/swagger'
+
+import { getUploadsRoute } from './routes/get-uploads'
 import { transformSwaggerSchema } from './routes/transform-swagger-schema'
 import { uploadImageRoute } from './routes/upload-image'
 
@@ -51,6 +52,7 @@ server.register(fastifySwaggerUi, {
 })
 
 server.register(uploadImageRoute)
+server.register(getUploadsRoute)
 
 server.get('/', () => {
   return 'Hello World'
