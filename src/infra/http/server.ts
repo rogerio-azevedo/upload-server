@@ -14,6 +14,7 @@ import { getUploadsRoute } from './routes/get-uploads'
 import { transformSwaggerSchema } from './routes/transform-swagger-schema'
 import { uploadImageRoute } from './routes/upload-image'
 import { exportUploadsRoute } from './routes/exports-uploads'
+import { downloadFileRoute } from './routes/download-file'
 
 const server = fastify()
 
@@ -55,6 +56,7 @@ server.register(fastifySwaggerUi, {
 server.register(uploadImageRoute)
 server.register(getUploadsRoute)
 server.register(exportUploadsRoute)
+server.register(downloadFileRoute)
 
 server.get('/', () => {
   return 'Hello World'
